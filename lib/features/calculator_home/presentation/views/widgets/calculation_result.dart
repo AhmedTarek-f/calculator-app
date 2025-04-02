@@ -9,7 +9,9 @@ class CalculationResult extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      height: ScreenSize.getHeight(context)*0.418,
+      width: ScreenSize.getWidth(context),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: ScreenSize.getWidth(context)*0.048),
         child: Align(
