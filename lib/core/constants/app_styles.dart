@@ -9,7 +9,13 @@ abstract class AppStyles{
     color: AppColors.white
   );
   static TextStyle fontSize24Normal = GoogleFonts.poppins(
-      fontSize: 24,
-      fontWeight: FontWeight.w400,
+    fontSize: 24,
+    fontWeight: FontWeight.w400,
+    color: AppColors.lighterGray
+  );
+  static TextStyle fontSize32Medium = GoogleFonts.poppins(
+    fontSize: 32,
+    fontWeight: FontWeight.w500,
+    color: AppColors.lightBlue,
   );
 }
