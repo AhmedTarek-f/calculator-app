@@ -15,7 +15,6 @@ class CalculatorButtons extends StatelessWidget {
           padding: EdgeInsets.only(
             right: ScreenSize.getWidth(context)*0.09,
             left: ScreenSize.getWidth(context)*0.09,
-            bottom: ScreenSize.getHeight(context)*0.0492,
           ),
           child: Row(
             children: [
