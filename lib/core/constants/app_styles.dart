@@ -8,6 +8,11 @@ abstract class AppStyles{
     fontWeight: FontWeight.w500,
     color: AppColors.white
   );
+  static TextStyle fontSize32Normal = GoogleFonts.poppins(
+      fontSize: 32,
+      fontWeight: FontWeight.w400,
+      color: AppColors.white.withValues(alpha: 0.5)
+  );
   static TextStyle fontSize24Normal = GoogleFonts.poppins(
     fontSize: 24,
     fontWeight: FontWeight.w400,
