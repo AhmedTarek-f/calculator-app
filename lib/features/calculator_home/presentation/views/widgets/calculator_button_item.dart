@@ -18,38 +18,44 @@ class CalculatorButtonItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = BlocProvider.of<CalculatorCubit>(context);
-    return InkWell(
-      onTap: (){
-        controller.changeCalculatorValue(value: buttonData.buttonLabel);
-      },
-      highlightColor: AppColors.lightBlue,
-      borderRadius: BorderRadius.circular(ScreenSize.getWidth(context)*0.04),
-      child: Container(
-        alignment: Alignment.center,
-        width: buttonData.width ?? ScreenSize.getWidth(context)*0.1653,
-        height: buttonData.height ?? ScreenSize.getHeight(context)*0.07635,
-        decoration: BoxDecoration(
-          color: buttonData.buttonBackgroundColor?? AppColors.gray,
-          borderRadius: BorderRadius.circular(ScreenSize.getWidth(context)*0.0426),
+    return Container(
+      width: buttonData.width ?? ScreenSize.getWidth(context)*0.1653,
+      height: buttonData.height ?? ScreenSize.getHeight(context)*0.07635,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(ScreenSize.getWidth(context)*0.0426),
           boxShadow: [
-            BoxShadow(
-              color: buttonData.buttonBackgroundColor?.withValues(alpha: 0.6) ?? AppColors.gray.withValues(alpha: 0.6),
-              blurStyle: BlurStyle.outer,
-              blurRadius: 5
-            )
-          ]
+              BoxShadow(
+                  color: buttonData.buttonBackgroundColor?.withValues(alpha: 0.6) ?? AppColors.gray.withValues(alpha: 0.6),
+                  blurStyle: BlurStyle.outer,
+                  blurRadius: 5
+              )
+            ]
+      ),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          padding: EdgeInsets.zero,
+          backgroundColor: buttonData.buttonBackgroundColor?? AppColors.gray,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(ScreenSize.getWidth(context)*0.0426)),
+          alignment: Alignment.center,
+          overlayColor: AppColors.lightBlue.withValues(alpha: 0.8),
         ),
+
+        onPressed: (){
+          controller.changeCalculatorValue(value: buttonData.buttonLabel);
+        },
         child: !buttonData.buttonLabel.contains(".svg")?
         Padding(
           padding: buttonData.buttonLabel == "." ? EdgeInsets.only(bottom: ScreenSize.getHeight(context)*0.014): EdgeInsets.zero,
           child: Text(
             buttonData.buttonLabel,
             style: buttonData.buttonLabelStyle??AppStyles.fontSize32Medium,
+            textAlign: TextAlign.center,
           ),
         ):
         SvgPicture.asset(
           buttonData.buttonLabel,
           fit: BoxFit.scaleDown,
+          alignment: Alignment.center,
         ),
       ),
     );
